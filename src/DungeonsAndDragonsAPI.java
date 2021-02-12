@@ -11,8 +11,8 @@ public class DungeonsAndDragonsAPI {
         //becuse of the open API a call does not require a key
         String baseURL = "https://www.dnd5eapi.co/api/";
         String searchCatagory = "spells";
-        String searchName = _spellName;
-        String urlString = baseURL + searchCatagory + "/" + searchName + "/";
+        String searchIndex = _spellName;
+        String urlString = baseURL + searchCatagory + "/" + searchIndex + "/";
         URL url;
         try{
             url = new URL(urlString);
