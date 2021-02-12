@@ -7,11 +7,11 @@ import org.json.*;
 
 public class DungeonsAndDragonsAPI {
 
-    public static void getInformation(){
+    public static void getInformation(String _spellName){
         //becuse of the open API a call does not require a key
         String baseURL = "https://www.dnd5eapi.co/api/";
         String searchCatagory = "spells";
-        String searchName = "acid-arrow";
+        String searchName = _spellName;
         String urlString = baseURL + searchCatagory + "/" + searchName + "/";
         URL url;
         try{
