@@ -8,6 +8,7 @@ import org.json.*;
 public class DungeonsAndDragonsAPI {
 
     public static void getInformation(){
+        //becuse of the open API a call does not require a key
         String baseURL = "https://www.dnd5eapi.co/api/";
         String searchCatagory = "spells";
         String searchName = "acid-arrow";
@@ -20,7 +21,7 @@ public class DungeonsAndDragonsAPI {
 
             int status = con.getResponseCode();
             if (status != 200) {
-                System.out.printf("Error: Could not complete search: " + status);
+                System.out.printf("Error: Could not find spell: " + status);
             } else {
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
@@ -30,6 +31,7 @@ public class DungeonsAndDragonsAPI {
                 }
                 in.close();
                 con.disconnect();
+                //converts the receved string to a JSON
                 System.out.println("Output: " + content.toString());
                 JSONObject obj = new JSONObject(content.toString());
                 String description = obj.getString("name");
