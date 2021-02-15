@@ -34,13 +34,32 @@ public class DungeonsAndDragonsAPI {
                 //converts the receved string to a JSON
                 System.out.println("Output: " + content.toString());
                 JSONObject obj = new JSONObject(content.toString());
+
                 //parsing the JSON to pull and print information
                 String name = obj.getString("name");
-                JSONArray description = obj.getJSONArray("desc");
+                JSONArray descriptionArray = obj.getJSONArray("desc");
                 JSONArray atHigherLevels = obj.getJSONArray("higher_level");
+                String range = obj.getString("range");
+                JSONArray componentArray = obj.getJSONArray("components");
+                String componentString = "";
+                String neededMaterials = obj.getString("material");
+                String spellLevel = obj.getString("level");
+                JSONObject damage = obj.getJSONObject("damage");
+                String damageType = damage.getJSONObject("damage_type").getString("name");
+
+                //turn the component array to a string
+                for(int i = 0; i < componentArray.length(); i++){
+                    componentString += componentArray.getString(i);
+                }
+
                 System.out.println(name);
-                System.out.println(description);
-                System.out.println("At higher levels:" + atHigherLevels);
+                System.out.println(descriptionArray.getString(0));
+                System.out.println("At higher levels: " + atHigherLevels.getString(0));
+                System.out.println("Has a range of " + range);
+                System.out.println("Components " + componentString);
+                System.out.println("The spell needs " + neededMaterials);
+                System.out.println("The base spell level is " + spellLevel);
+                System.out.println("Damage type " + damageType);
             }
         }catch (Exception ex) {
             System.out.println("Error: " + ex);
