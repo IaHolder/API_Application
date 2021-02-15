@@ -31,8 +31,8 @@ public class DungeonsAndDragonsAPI {
                 }
                 in.close();
                 con.disconnect();
-                //converts the receved string to a JSON
                 System.out.println("Output: " + content.toString());
+                //converts the receved string to a JSON
                 JSONObject obj = new JSONObject(content.toString());
                 String description = obj.getString("name");
                 System.out.println(description);
