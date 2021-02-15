@@ -4,6 +4,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.*;
+/** last updated Feb 15, 2021
+ * the class getting a JSON, and printing the important information about a spell passed to the class
+ * Author Ian Holder */
 
 public class DungeonsAndDragonsAPI {
 
