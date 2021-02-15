@@ -34,8 +34,13 @@ public class DungeonsAndDragonsAPI {
                 //converts the receved string to a JSON
                 System.out.println("Output: " + content.toString());
                 JSONObject obj = new JSONObject(content.toString());
-                String description = obj.getString("name");
+                //parsing the JSON to pull and print information
+                String name = obj.getString("name");
+                JSONArray description = obj.getJSONArray("desc");
+                JSONArray atHigherLevels = obj.getJSONArray("higher_level");
+                System.out.println(name);
                 System.out.println(description);
+                System.out.println("At higher levels:" + atHigherLevels);
             }
         }catch (Exception ex) {
             System.out.println("Error: " + ex);
